@@ -27,6 +27,7 @@ from plone.app.z3cform import layout
 from plone.app.registry.browser.controlpanel import ControlPanelFormWrapper
 
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import safe_unicode
 
 from redomino.keywordalias import keywordaliasMessageFactory as _
 from redomino.keywordalias.interfaces import IKeywordAlias
@@ -238,8 +239,8 @@ class KeywordAliasForm(crud.CrudForm):
         keyword_settings = self._keyword_settings
         keyword_storage = keyword_settings.keyword_storage
 
-        key = data['keyword']
-        value = [item for item in data['keywords']]
+        key = safe_unicode(data['keyword'])
+        value = [safe_unicode(item) for item in data['keywords']]
         keyword_storage[key] = value
         keyword_settings.keyword_storage = keyword_storage
 
