@@ -237,10 +237,9 @@ class KeywordAliasForm(crud.CrudForm):
         """
         keyword_settings = self._keyword_settings
         keyword_storage = keyword_settings.keyword_storage
-        charset = self.default_charset()
 
-        key = unicode(data['keyword'], charset)
-        value = [unicode(item, charset) for item in data['keywords']]
+        key = data['keyword']
+        value = [item for item in data['keywords']]
         keyword_storage[key] = value
         keyword_settings.keyword_storage = keyword_storage
 
