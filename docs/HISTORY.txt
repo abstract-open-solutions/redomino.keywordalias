@@ -4,7 +4,8 @@ Changelog
 0.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- fix Plone5.2 errors #6232
+  [ekulos]
 
 
 0.2 (2020-03-03)
